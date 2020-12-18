@@ -28,15 +28,15 @@ class Index extends StatelessWidget {
                         children: [
                           CustomCard(context, "images/aristoteles.jpeg"),
                           CustomCard(context, "images/Darwin.jpg"),
-                          CustomCard(context, "images/aristoteles.jpeg"),
-                          CustomCard(context, "images/aristoteles.jpeg")
+                          CustomCard(context, "images/einstein.jpeg"),
+                          CustomCard(context, "images/socrates.png")
                         ],
                       )),
                   Divider(),
-                  IndexCard(width, height,context)
+                 IndexCard(width, height,context)
                 ],
               ),
-            ))
+            )),
       ],
     );
   }

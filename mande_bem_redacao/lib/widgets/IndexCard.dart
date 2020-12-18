@@ -16,7 +16,7 @@ class IndexCard extends StatefulWidget {
 
 class _IndexCardState extends State<IndexCard> {
   List<Topics> list = List();
-  List<Route> route = List();
+  List<String> route = List();
 
   @override
   void initState() {
@@ -26,21 +26,39 @@ class _IndexCardState extends State<IndexCard> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     list = [
       Topics(
         "Teste",
       ),
       Topics(
         "Salve",
-      )
+      ),
+      Topics(
+        "Salve",
+      ),
+      Topics(
+        "Salve",
+      ),
+      Topics(
+        "Salve",
+      ),
+      Topics(
+        "Salve",
+      ),
     ];
     route = [
-      MaterialPageRoute(builder: (context) => Saude()),
-      MaterialPageRoute(builder: (context) => SplashCustom())
+      '/saude',
+      '/',
+      '/saude',
+      '/saude',
+      '/saude',
+      '/saude',
     ];
     return Container(
-      height: this.widget.height,
-      width: this.widget.width,
+      height: widget.height,
+      width: widget.width,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
@@ -52,13 +70,18 @@ class _IndexCardState extends State<IndexCard> {
             itemCount: list.length,
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: () => Navigator.push(widget.context, route[index]),
+                onTap: () {
+                  Navigator.pushNamed(widget.context, route[index]);
+                },
                 child: Container(
                   width: widget.width,
                   height: widget.height / 8,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(32),
-                    color: Colors.red,
+                    gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [Color(0xff45a247), Color(0xff283c86)]),
                   ),
                   child: Text(list[index].topic),
                 ),
