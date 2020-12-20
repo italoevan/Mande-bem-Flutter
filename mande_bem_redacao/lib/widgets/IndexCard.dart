@@ -22,32 +22,6 @@ class _IndexCardState extends State<IndexCard> {
   void initState() {
     // TODO: implement initState
     super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    list = [
-      Topics(
-        "Teste",
-      ),
-      Topics(
-        "Salve",
-      ),
-      Topics(
-        "Salve",
-      ),
-      Topics(
-        "Salve",
-      ),
-      Topics(
-        "Salve",
-      ),
-      Topics(
-        "Salve",
-      ),
-    ];
     route = [
       '/saude',
       '/',
@@ -56,14 +30,44 @@ class _IndexCardState extends State<IndexCard> {
       '/saude',
       '/saude',
     ];
+    list = [
+      Topics(
+        "EDUCAÇÃO",
+      ),
+      Topics(
+        "VIOLÊNCIA",
+      ),
+      Topics(
+        "JUVENTUDE",
+      ),
+      Topics(
+        "FILOSOFOS E AFINS",
+      ),
+      Topics(
+        "SABEDORIA",
+      ),
+      Topics(
+        "TRABALHO",
+      ),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
-      height: widget.height,
+      height: widget.height / (123 / 100), //Mexer pra deixar o indexCard de acordo com o bottomNavigation
       width: widget.width,
       child: Card(
+        elevation: 0,
+        color: Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
         child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
             separatorBuilder: (context, index) => Divider(
                   color: Colors.transparent,
                 ),
@@ -75,15 +79,17 @@ class _IndexCardState extends State<IndexCard> {
                 },
                 child: Container(
                   width: widget.width,
-                  height: widget.height / 8,
+                  height: widget.height / 10,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(20),
                     gradient: LinearGradient(
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                         colors: [Color(0xff45a247), Color(0xff283c86)]),
                   ),
-                  child: Text(list[index].topic),
+                  child: Center(
+                      child: Text(list[index].topic,
+                          style: TextStyle(color: Colors.white, fontSize: 35))),
                 ),
               );
             }),

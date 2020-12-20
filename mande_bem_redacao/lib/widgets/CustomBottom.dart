@@ -18,6 +18,8 @@ class _CustomBottomState extends State<CustomBottom> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      
+      backgroundColor: Colors.white30,
       currentIndex: widget.i,
       onTap: (num) {
         setState(() {

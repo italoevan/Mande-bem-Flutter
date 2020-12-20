@@ -9,8 +9,9 @@ class Index extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Stack(
       children: [
+        Image.asset("images/background.jpg", fit: BoxFit.cover, width: width,height: height,),
         Container(
-            padding: EdgeInsets.all(width / 50),
+            padding: EdgeInsets.only(right: width / 50, left: width / 50),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -18,7 +19,7 @@ class Index extends StatelessWidget {
                   Text(
                     "Grandes Nomes",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 25, color: Colors.black),
+                    style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                   Divider(),
                   Container(
