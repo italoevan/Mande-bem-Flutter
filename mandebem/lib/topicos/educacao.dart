@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
 import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Educacao extends StatefulWidget {
   @override
@@ -10,23 +12,7 @@ class Educacao extends StatefulWidget {
 
 class _EducacaoState extends State<Educacao> {
   List<Frases> list = List();
-  /*    Clipboard.setData(ClipboardData(
-                                        text: "\"" +
-                                            list[index].texto +
-                                            "\"" +
-                                            " \n" +
-                                            list[index].autor));
-                                    Scaffold.of(context).showSnackBar(SnackBar(
-                                        content: Row(
-                                      children: [
-                                        Text(
-                                            "Copiado para área de transferência"),
-                                        SizedBox(
-                                          width: width / 8,
-                                        ),
-                                        Icon(Icons.done)
-                                      ],
-                                    ))); */
+  
 
   @override
   void initState() {
@@ -51,6 +37,7 @@ class _EducacaoState extends State<Educacao> {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 2), () => showAlert(context));
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -76,23 +63,24 @@ class _EducacaoState extends State<Educacao> {
                 child: ListView.separated(
                     itemBuilder: (context, index) {
                       return GestureDetector(
-                        onDoubleTap: (){    Clipboard.setData(ClipboardData(
-                                        text: "\"" +
-                                            list[index].texto +
-                                            "\"" +
-                                            " \n" +
-                                            list[index].autor));
-                                    Scaffold.of(context).showSnackBar(SnackBar(
-                                        content: Row(
-                                      children: [
-                                        Text(
-                                            "Copiado para área de transferência"),
-                                        SizedBox(
-                                          width: width / 8,
-                                        ),
-                                        Icon(Icons.done)
-                                      ],
-                                    )));},
+                        onDoubleTap: () {
+                          Clipboard.setData(ClipboardData(
+                              text: "\"" +
+                                  list[index].texto +
+                                  "\"" +
+                                  " \n" +
+                                  list[index].autor));
+                          Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Row(
+                            children: [
+                              Text("Copiado para área de transferência"),
+                              SizedBox(
+                                width: width / 8,
+                              ),
+                              Icon(Icons.done)
+                            ],
+                          )));
+                        },
                         child: Container(
                           height: height / 6.9,
                           width: width,
@@ -111,7 +99,7 @@ class _EducacaoState extends State<Educacao> {
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  padding: EdgeInsets.only(left: 8,right: 8),
+                                  padding: EdgeInsets.only(left: 8, right: 8),
                                 ),
                               ),
                               Align(
@@ -133,4 +121,16 @@ class _EducacaoState extends State<Educacao> {
           ],
         ));
   }
+
+  void showAlert(BuildContext context) {
+    showDialog(
+        child: Container(
+            child: AlertDialog(
+          content: Text(
+              "De dois cliques para salvar a citação na área de transferência."),
+        )),
+        context: context);
+  }
+
+  
 }
