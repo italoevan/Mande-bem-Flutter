@@ -24,11 +24,11 @@ class _IndexCardState extends State<IndexCard> {
     super.initState();
     route = [
       '/educacao',
-      '/',
-      '/saude',
-      '/saude',
-      '/saude',
-      '/saude',
+      '/violencia',
+      '/juventude',
+      '/filosofos',
+      '/sabedoria',
+      '/trabalho',
     ];
     list = [
       Topics(

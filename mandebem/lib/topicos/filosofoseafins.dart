@@ -5,12 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Educacao extends StatefulWidget {
+class FilosofosEAfins extends StatefulWidget {
   @override
   _EducacaoState createState() => _EducacaoState();
 }
 
-class _EducacaoState extends State<Educacao> {
+class _EducacaoState extends State<FilosofosEAfins> {
   List<Frases> list = List();
   bool verAlert = false;
   bool aparecerAlert;
@@ -35,17 +35,14 @@ class _EducacaoState extends State<Educacao> {
     });
     list = [
       Frases(
-          "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção.",
-          "- PAULO FREIRE"),
+          "Se eu vi mais longe, foi por estar sobre ombros de gigantes.",
+          "- ISAAC NEWTON"),
       Frases(
-          "Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.",
-          "- PAULO FREIRE"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR")
+          "Não existem métodos fáceis para resolver problemas difíceis.",
+          "- RENÉ DESCARTES"),
+      Frases("Duas coisas são infinitas, o universo e a estupidez humana.Mas em relação ao universo, ainda não tenho certeza absoluta.", "- ALBERT EINSTEIN"),
+      Frases("Não tentes ser bem sucedido, tenta antes ser um homem de valor.", "- ALBERT EINSTEIN"),
+    
     ];
   }
 
@@ -66,18 +63,14 @@ class _EducacaoState extends State<Educacao> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Educação"),
+          title: Text("Filósofos e Afins"),
           centerTitle: true,
         ),
         body: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xffFF8B01), Color(0xffE60001)])),
-            ),
+              Container(
+          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
+        ),
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),

@@ -5,12 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Educacao extends StatefulWidget {
+class Juventude extends StatefulWidget {
   @override
   _EducacaoState createState() => _EducacaoState();
 }
 
-class _EducacaoState extends State<Educacao> {
+class _EducacaoState extends State<Juventude> {
   List<Frases> list = List();
   bool verAlert = false;
   bool aparecerAlert;
@@ -35,17 +35,14 @@ class _EducacaoState extends State<Educacao> {
     });
     list = [
       Frases(
-          "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção.",
-          "- PAULO FREIRE"),
+          "O moço que não chorou é um selvagem, e o velho que não quer rir é um tolo.",
+          "- GEORGE SATAYANA"),
       Frases(
-          "Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.",
-          "- PAULO FREIRE"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR")
+          "Toda geração tem uma chance de mudar o mundo.",
+          "- BONO"),
+      Frases("A juventude não é uma época da vida, é um estado de espírito.", "- SAMUEL ULLMAN"),
+      Frases("A velhice é uma tirania que proíbe, sob pena de morte, todos os prazeres da juventude.", "- FRANÇOIS DE LA ROCHEFOUCAULD"),
+   
     ];
   }
 
@@ -66,18 +63,14 @@ class _EducacaoState extends State<Educacao> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Educação"),
+          title: Text("Juventude"),
           centerTitle: true,
         ),
         body: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xffFF8B01), Color(0xffE60001)])),
-            ),
+             Container(
+          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
+        ),
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),

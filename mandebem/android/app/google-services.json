@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "987691089440",
+    "firebase_url": "https://mande-bem-redacao.firebaseio.com",
+    "project_id": "mande-bem-redacao",
+    "storage_bucket": "mande-bem-redacao.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987691089440:android:9b7961815456bf29c80645",
+        "android_client_info": {
+          "package_name": "com.evinc.mandebem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987691089440-bvbdccp8rrn79k05must93op0u446p9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeOYl9tuy_pcjvK4E3gmOLbnSu382Rnag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987691089440-bvbdccp8rrn79k05must93op0u446p9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-6321157595470088~7268826837"
+    }
+  ],
+  "configuration_version": "1"
+}

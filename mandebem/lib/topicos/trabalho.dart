@@ -5,12 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Educacao extends StatefulWidget {
+class Trabalho extends StatefulWidget {
   @override
   _EducacaoState createState() => _EducacaoState();
 }
 
-class _EducacaoState extends State<Educacao> {
+class _EducacaoState extends State<Trabalho> {
   List<Frases> list = List();
   bool verAlert = false;
   bool aparecerAlert;
@@ -34,18 +34,17 @@ class _EducacaoState extends State<Educacao> {
       print(value);
     });
     list = [
+      Frases("O trabalho espanta os vícios que derivam do ócio.", "- SÉNECA"),
       Frases(
-          "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção.",
-          "- PAULO FREIRE"),
+          "Para nos mantermos bem é necessário comer pouco e trabalhar muito.",
+          "- ARISTÓTELES"),
+      Frases("O prazer no trabalho aperfeiçoa a obra.", "- ARISTÓTELES"),
       Frases(
-          "Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.",
-          "- PAULO FREIRE"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR")
+          "Que ningém se engane, só se consegue simplicidade através de muito trabalho.",
+          "- CLARICE LISPECTOR"),
+      Frases(
+          "Escolhe um trabalho que gosta, e não vai ter que trabalhar um único dia de sua vida.",
+          "- CONFÚCIO"),
     ];
   }
 
@@ -66,18 +65,14 @@ class _EducacaoState extends State<Educacao> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Educação"),
+          title: Text("Trabalho"),
           centerTitle: true,
         ),
         body: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xffFF8B01), Color(0xffE60001)])),
-            ),
+             Container(
+          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
+        ),
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),

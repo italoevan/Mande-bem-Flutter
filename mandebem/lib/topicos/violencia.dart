@@ -5,12 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Educacao extends StatefulWidget {
+class Violencia extends StatefulWidget {
   @override
   _EducacaoState createState() => _EducacaoState();
 }
 
-class _EducacaoState extends State<Educacao> {
+class _EducacaoState extends State<Violencia> {
   List<Frases> list = List();
   bool verAlert = false;
   bool aparecerAlert;
@@ -34,18 +34,20 @@ class _EducacaoState extends State<Educacao> {
       print(value);
     });
     list = [
+      Frases(" A viôlencia é sempre terrível, mesmo quando a causa é justa.",
+          "- FRIEDRICH SCHILLER"),
       Frases(
-          "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção.",
-          "- PAULO FREIRE"),
+          "A viôlencia não é força, mas fraquesa, nem nunca poderá ser criadora de coisa alguma, apenas destruidora.",
+          "- BENEDETTO CROCE"),
       Frases(
-          "Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.",
-          "- PAULO FREIRE"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR")
+          "A viôlencia destrói o que ela pretende defender: a dignidade da vida, a liberdade do ser humano.",
+          "- JÕAO PAULO II"),
+      Frases(
+          "A viôlencia, seja qual for a maneira como ela se manifesta, é sempre uma derrota.",
+          "- JEAN PAUL SARTPRE"),
+      Frases(
+          "Uma das coisas importantes da não violência é que não busca destruir a pessoa, mas transformá-la.",
+          "- MARTIN LUTHER KING"),
     ];
   }
 
@@ -66,17 +68,18 @@ class _EducacaoState extends State<Educacao> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Educação"),
+          title: Text("Viôlencia"),
           centerTitle: true,
         ),
         body: Stack(
           children: [
             Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xffFF8B01), Color(0xffE60001)])),
+              child: Image.asset(
+                "images/background.jpeg",
+                width: width,
+                height: height,
+                fit: BoxFit.cover,
+              ),
             ),
             Center(
               child: Container(

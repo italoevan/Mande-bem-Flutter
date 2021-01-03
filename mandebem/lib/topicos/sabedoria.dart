@@ -5,12 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Educacao extends StatefulWidget {
+class Sabedoria extends StatefulWidget {
   @override
   _EducacaoState createState() => _EducacaoState();
 }
 
-class _EducacaoState extends State<Educacao> {
+class _EducacaoState extends State<Sabedoria> {
   List<Frases> list = List();
   bool verAlert = false;
   bool aparecerAlert;
@@ -35,17 +35,18 @@ class _EducacaoState extends State<Educacao> {
     });
     list = [
       Frases(
-          "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção.",
-          "- PAULO FREIRE"),
+          "Não basta adquirir sabedoria, é preciso além disso saber utiliza-la.",
+          "- CÍCERO"),
+      Frases("Sábio é aquele que conhece os limites da própria ignorância.",
+          "- SÓCRATES"),
       Frases(
-          "Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.",
-          "- PAULO FREIRE"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR"),
-      Frases("TESTE", "- TESTE DE AUTOR")
+          "O saber a gente aprende com os mestres e os livros.A sabedoria se aprende é com a vida e com os humildes.",
+          "- CORA CORALINA"),
+      Frases("Um homem não pode fazer o certo numa área da vida, enquanto está ocupado em fazer o errado em outra. A vida é um todo indivisível.", "- Mahatma Gandhi".toUpperCase()),
+      Frases("O ignorante afirma, o sábio duvida, o sensato reflete.", "- ARISTOTELES"),
+      Frases("A simplicidade é o último grau de sofisticação.", "- Leonard Thiessen"),
+      Frases("Não espere por uma crise para descobrir o que é importante em sua vida.", "- PLATÃO"),
+      Frases("A vida é para quem topa qualquer parada. Não para quem para em qualquer topada.", "- BOB MARLEY")
     ];
   }
 
@@ -66,18 +67,14 @@ class _EducacaoState extends State<Educacao> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Educação"),
+          title: Text("Sabedoria"),
           centerTitle: true,
         ),
         body: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xffFF8B01), Color(0xffE60001)])),
-            ),
+             Container(
+          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
+        ),
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),
@@ -124,9 +121,10 @@ class _EducacaoState extends State<Educacao> {
                                   child: Text(
                                     list[index].texto,
                                     style: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold),
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                   padding: EdgeInsets.only(left: 8, right: 8),
                                 ),

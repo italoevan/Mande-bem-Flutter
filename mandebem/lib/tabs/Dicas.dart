@@ -12,7 +12,9 @@ class _DicasState extends State<Dicas> {
     double height = MediaQuery.of(context).size.height;
     return Stack(
       children: [
-        Image.asset("images/background.jpg", height: height,width: width,fit: BoxFit.cover,)
+           Container(
+          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
+        )
       ],
     );
   }
