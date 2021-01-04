@@ -30,7 +30,7 @@ class Index extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: [
                       CustomCard(context, "images/aristoteles.jpeg",false,pushNamed: '/aristoteles',),
-                      CustomCard(context, "images/Darwin.jpg",false,pushNamed: '/aristoteles'),
+                      CustomCard(context, "images/Darwin.jpg",false,pushNamed: '/darwin'),
                       CustomCard(context, "images/einstein.jpeg",true),
                       CustomCard(context, "images/socrates.png",true)
                     ],

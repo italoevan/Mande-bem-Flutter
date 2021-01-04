@@ -55,18 +55,20 @@ class _FilosofosState extends State<Filosofos> {
               child: Container(
                 child: Column(children: [
                   Padding(
-                    padding: EdgeInsets.all(32),
+                    padding: EdgeInsets.all(8),
                     child: Container(
                       color: Colors.transparent,
                       width: width,
+                      height: height /5,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(25),
                             child: Image.asset(
                               widget.filosofoImage,
-                              width: width / 3.5,
+                              width: width / 3.3,
+                              height: height /6,
                             ),
                           ),
                           SizedBox(
@@ -143,11 +145,19 @@ class _FilosofosState extends State<Filosofos> {
                               child: SizedBox(
                                 height: height / 7,
                                 child: Card(
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16)),
                                   color: Colors.white,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Center(child: Text(list[i].texto, style: TextStyle(color: Colors.black,fontSize: 18, fontWeight: FontWeight.bold),)),
+                                    child: Center(
+                                        child: Text(
+                                      list[i].texto,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    )),
                                   ),
                                 ),
                               ),

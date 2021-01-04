@@ -9,10 +9,9 @@ class Compre extends StatefulWidget {
 
 class _CompreState extends State<Compre> {
   bool animation = true;
- 
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Compre"),
@@ -24,19 +23,18 @@ class _CompreState extends State<Compre> {
           children: [
             Image.asset("images/compre.png"),
             Expanded(
-                child:Container(
-             
+                child: Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                
                 children: [
                   Text(
                     "Adquira a versão PRO!!",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  Padding(padding: EdgeInsets.all(32)),
                   Text(
                     "* SEM ANÚNCIOS!!",
                     style: TextStyle(
@@ -45,7 +43,6 @@ class _CompreState extends State<Compre> {
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
-                   Padding(padding: EdgeInsets.all(10)),
                   Text(
                     "* TODOS OS TÓPICOS\n DESBLOQUEADOS",
                     style: TextStyle(
@@ -54,17 +51,22 @@ class _CompreState extends State<Compre> {
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
-                  Padding(padding: EdgeInsets.all(25)),
                   SizedBox(
-                    height: 40,
-                    width: 150,
+                    height: 60,
+                    width: 300,
                     child: RaisedButton(
-                      color: Theme.of(context).primaryColor,
+                      color: Colors.purple[800],
                       onPressed: () {},
                       child: Text("ADQUIRIR",
                           style: TextStyle(color: Colors.white, fontSize: 19)),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32)),
+                    ),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [card('images/aristoteles.jpeg')],
                     ),
                   )
                 ],
@@ -73,6 +75,13 @@ class _CompreState extends State<Compre> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget card(String image) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(32),
+      child: Image.asset(image, width: 90,height: 90,fit: BoxFit.cover,),
     );
   }
 }

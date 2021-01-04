@@ -1,5 +1,6 @@
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
+import 'package:mandebem/screens/MandeCitacao.dart';
 import 'package:mandebem/tabs/Dicas.dart';
 import 'package:mandebem/tabs/Index.dart';
 import 'package:mandebem/widgets/CustomAppBar.dart';
@@ -15,6 +16,7 @@ class _HomeState extends State<Home> {
   PageController _controller = PageController();
 
   int i = 0;
+  
 
   @override
   void dispose() {
@@ -29,13 +31,14 @@ class _HomeState extends State<Home> {
     // TODO: implement initState
     super.initState();
     print("InitState");
+    /*
     myInterstitial
       ..load()
       ..show(
         anchorType: AnchorType.bottom,
         anchorOffset: 0.0,
         horizontalCenterOffset: 0.0,
-      );
+      ); */
   }
 
   @override
@@ -44,7 +47,7 @@ class _HomeState extends State<Home> {
         extendBody: true,
         drawer: CustomDrawer(),
         appBar: AppBar(
-          title: Text("Mande Bem Redação"),
+          title: Text("Mande Bem Redação")  ,
           centerTitle: true,
           actions: [
             IconButton(
@@ -57,7 +60,7 @@ class _HomeState extends State<Home> {
         body: PageView(
           physics: NeverScrollableScrollPhysics(),
           controller: _controller,
-          children: [Index(), Dicas()],
+          children: [Index(), Dicas(), MandeCitacao()],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
