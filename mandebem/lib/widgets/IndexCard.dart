@@ -23,6 +23,7 @@ class _IndexCardState extends State<IndexCard> {
     // TODO: implement initState
     super.initState();
     route = [
+      '/frasesUsuarios',
       '/educacao',
       '/violencia',
       '/juventude',
@@ -31,6 +32,10 @@ class _IndexCardState extends State<IndexCard> {
       '/trabalho',
     ];
     list = [
+      Topics(
+        "USUÁRIOS",
+        isEspecial: true,
+      ),
       Topics(
         "EDUCAÇÃO",
       ),
@@ -58,8 +63,10 @@ class _IndexCardState extends State<IndexCard> {
     double width = MediaQuery.of(context).size.width;
 
     return SafeArea(
-          child: Container(
-        height: widget.height / (123 / 100), //Mexer pra deixar o indexCard de acordo com o bottomNavigation
+      child: Container(
+        height: widget.height /
+            (113 /
+                100), //Mexer pra deixar o indexCard de acordo com o bottomNavigation
         width: widget.width,
         child: Card(
           elevation: 0,
@@ -86,16 +93,25 @@ class _IndexCardState extends State<IndexCard> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: [Color(0xff45a247), Color(0xff283c86)]),
+                          colors: cores(index)),
                     ),
                     child: Center(
                         child: Text(list[index].topic,
-                            style: TextStyle(color: Colors.white, fontSize: 35))),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 35))),
                   ),
                 );
               }),
         ),
       ),
     );
+  }
+
+  List<Color> cores(int index) {
+    if (list[index].isEspecial == null) {
+      return [Color(0xff45a247), Color(0xff283c86)];
+    } else {
+      return [Color(0xff004ff9), Color(0xfffff94c)];
+    }
   }
 }
