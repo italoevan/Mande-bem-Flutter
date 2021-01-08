@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
 import 'package:mandebem/widgets/Background.dart';
 
@@ -60,36 +61,59 @@ class _FrasesUsuariosState extends State<FrasesUsuarios> {
                           } else if (snapshot.hasData) {
                             return ListView.separated(
                                 itemBuilder: (context, index) {
-                                  return Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(17),
-                                    ),
-                                    height: height / 6.9,
-                                    child: Stack(
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: Padding(
-                                            child: Text(
-                                              list[index].texto,
-                                              style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.bold),
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Clipboard.setData(ClipboardData(
+                                          text: "\"" +
+                                              list[index].texto +
+                                              "\"" +
+                                              " \n" +
+                                              list[index].autor));
+                                      Scaffold.of(context)
+                                          .showSnackBar(SnackBar(
+                                              content: Row(
+                                        children: [
+                                          Text(
+                                              "Copiado para área de transferência"),
+                                          SizedBox(
+                                            width: width / 8,
+                                          ),
+                                          Icon(Icons.done)
+                                        ],
+                                      )));
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(17),
+                                      ),
+                                      height: height / 6.9,
+                                      child: Stack(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.center,
+                                            child: Padding(
+                                              child: Text(
+                                                list[index].texto,
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              padding: EdgeInsets.only(
+                                                  left: 8, right: 8),
                                             ),
-                                            padding: EdgeInsets.only(
-                                                left: 8, right: 8),
                                           ),
-                                        ),
-                                        Align(
-                                          alignment: Alignment.bottomLeft,
-                                          child: Padding(
-                                            padding: EdgeInsets.only(left: 8),
-                                            child: Text(list[index].autor),
+                                          Align(
+                                            alignment: Alignment.bottomLeft,
+                                            child: Padding(
+                                              padding: EdgeInsets.only(left: 8),
+                                              child: Text(list[index].autor),
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   );
                                 },

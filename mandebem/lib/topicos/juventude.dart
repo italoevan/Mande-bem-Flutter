@@ -3,6 +3,7 @@ import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
+import 'package:mandebem/widgets/Background.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Juventude extends StatefulWidget {
@@ -37,12 +38,12 @@ class _EducacaoState extends State<Juventude> {
       Frases(
           "O moço que não chorou é um selvagem, e o velho que não quer rir é um tolo.",
           "- GEORGE SATAYANA"),
+      Frases("Toda geração tem uma chance de mudar o mundo.", "- BONO"),
+      Frases("A juventude não é uma época da vida, é um estado de espírito.",
+          "- SAMUEL ULLMAN"),
       Frases(
-          "Toda geração tem uma chance de mudar o mundo.",
-          "- BONO"),
-      Frases("A juventude não é uma época da vida, é um estado de espírito.", "- SAMUEL ULLMAN"),
-      Frases("A velhice é uma tirania que proíbe, sob pena de morte, todos os prazeres da juventude.", "- FRANÇOIS DE LA ROCHEFOUCAULD"),
-   
+          "A velhice é uma tirania que proíbe, sob pena de morte, todos os prazeres da juventude.",
+          "- FRANÇOIS DE LA ROCHEFOUCAULD"),
     ];
   }
 
@@ -68,9 +69,7 @@ class _EducacaoState extends State<Juventude> {
         ),
         body: Stack(
           children: [
-             Container(
-          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
-        ),
+           Background(height, width),
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),

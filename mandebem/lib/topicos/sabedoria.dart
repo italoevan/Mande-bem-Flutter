@@ -3,6 +3,7 @@ import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
+import 'package:mandebem/widgets/Background.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Sabedoria extends StatefulWidget {
@@ -42,11 +43,19 @@ class _EducacaoState extends State<Sabedoria> {
       Frases(
           "O saber a gente aprende com os mestres e os livros.A sabedoria se aprende é com a vida e com os humildes.",
           "- CORA CORALINA"),
-      Frases("Um homem não pode fazer o certo numa área da vida, enquanto está ocupado em fazer o errado em outra. A vida é um todo indivisível.", "- Mahatma Gandhi".toUpperCase()),
-      Frases("O ignorante afirma, o sábio duvida, o sensato reflete.", "- ARISTOTELES"),
-      Frases("A simplicidade é o último grau de sofisticação.", "- Leonard Thiessen"),
-      Frases("Não espere por uma crise para descobrir o que é importante em sua vida.", "- PLATÃO"),
-      Frases("A vida é para quem topa qualquer parada. Não para quem para em qualquer topada.", "- BOB MARLEY")
+      Frases(
+          "Um homem não pode fazer o certo numa área da vida, enquanto está ocupado em fazer o errado em outra. A vida é um todo indivisível.",
+          "- Mahatma Gandhi".toUpperCase()),
+      Frases("O ignorante afirma, o sábio duvida, o sensato reflete.",
+          "- ARISTOTELES"),
+      Frases("A simplicidade é o último grau de sofisticação.",
+          "- Leonard Thiessen"),
+      Frases(
+          "Não espere por uma crise para descobrir o que é importante em sua vida.",
+          "- PLATÃO"),
+      Frases(
+          "A vida é para quem topa qualquer parada. Não para quem para em qualquer topada.",
+          "- BOB MARLEY")
     ];
   }
 
@@ -72,9 +81,7 @@ class _EducacaoState extends State<Sabedoria> {
         ),
         body: Stack(
           children: [
-             Container(
-          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
-        ),
+            Background(height, width),
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),

@@ -3,6 +3,7 @@ import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
+import 'package:mandebem/widgets/Background.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Educacao extends StatefulWidget {
@@ -69,9 +70,7 @@ class _EducacaoState extends State<Educacao> {
         ),
         body: Stack(
           children: [
-              Container(
-          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
-        ),
+              Background(height, width),
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),

@@ -3,6 +3,7 @@ import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mandebem/model/Frases.dart';
+import 'package:mandebem/widgets/Background.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FilosofosEAfins extends StatefulWidget {
@@ -34,15 +35,15 @@ class _EducacaoState extends State<FilosofosEAfins> {
       print(value);
     });
     list = [
-      Frases(
-          "Se eu vi mais longe, foi por estar sobre ombros de gigantes.",
+      Frases("Se eu vi mais longe, foi por estar sobre ombros de gigantes.",
           "- ISAAC NEWTON"),
-      Frases(
-          "Não existem métodos fáceis para resolver problemas difíceis.",
+      Frases("Não existem métodos fáceis para resolver problemas difíceis.",
           "- RENÉ DESCARTES"),
-      Frases("Duas coisas são infinitas, o universo e a estupidez humana.Mas em relação ao universo, ainda não tenho certeza absoluta.", "- ALBERT EINSTEIN"),
-      Frases("Não tentes ser bem sucedido, tenta antes ser um homem de valor.", "- ALBERT EINSTEIN"),
-    
+      Frases(
+          "Duas coisas são infinitas, o universo e a estupidez humana.Mas em relação ao universo, ainda não tenho certeza absoluta.",
+          "- ALBERT EINSTEIN"),
+      Frases("Não tentes ser bem sucedido, tenta antes ser um homem de valor.",
+          "- ALBERT EINSTEIN"),
     ];
   }
 
@@ -68,9 +69,7 @@ class _EducacaoState extends State<FilosofosEAfins> {
         ),
         body: Stack(
           children: [
-              Container(
-          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
-        ),
+            Background(height, width),
             Center(
               child: Container(
                 padding: EdgeInsets.all(10),

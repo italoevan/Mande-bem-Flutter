@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:mandebem/widgets/Background.dart';
 import 'package:mandebem/widgets/CustomCard.dart';
 import 'package:mandebem/widgets/IndexCard.dart';
 
@@ -10,9 +11,7 @@ class Index extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Stack(
       children: [
-        Container(
-          child: Image.asset("images/background.jpeg",width: width,height: height,fit: BoxFit.cover,),
-        ),
+        Background(height, width),
         Container(
             child: SingleChildScrollView(
           child: Column(

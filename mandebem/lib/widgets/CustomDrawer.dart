@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mandebem/screens/Home.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -10,6 +11,7 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   bool logado;
 
   @override
@@ -17,6 +19,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     // TODO: implement initState
     super.initState();
     usuarioLogado();
+    apelidoUser();
   }
 
   @override
@@ -26,6 +29,22 @@ class _CustomDrawerState extends State<CustomDrawer> {
           child: Container(
         child: Column(
           children: [
+            SizedBox(
+              height: 30,
+            ),
+            FutureBuilder(
+                future: apelidoUser(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Text(
+                          "Bem vindo ${snapshot.data}!",
+                          style: TextStyle(color: Colors.black, fontSize: 25),
+                        ) ??
+                        Container();
+                  } else {
+                    return Container();
+                  }
+                }),
             Center(
               child: Image.asset("images/enem_logo.png"),
             ),
@@ -105,6 +124,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
       print("Usuario Logado");
       logado = true;
       return true;
+    }
+  }
+
+  Future<String> apelidoUser() async {
+    String apelido = "";
+    if (firebaseAuth != null) {
+      String id = firebaseAuth.currentUser.uid;
+      var value = await firestore.collection('usuarios').doc(id).get();
+      apelido = value.data()['apelido'];
+      return apelido;
+    } else {
+      return apelido;
     }
   }
 
